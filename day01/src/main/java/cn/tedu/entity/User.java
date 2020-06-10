@@ -49,4 +49,15 @@ public class User implements Serializable {
     public void setNick(String nick) {
         this.nick = nick;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", password='" + password + '\'' +
+                ", token='" + token + '\'' +
+                ", nick='" + nick + '\'' +
+                '}';
+    }
 }

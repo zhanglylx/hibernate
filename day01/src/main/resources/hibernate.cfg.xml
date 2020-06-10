@@ -11,7 +11,7 @@
         </property>
         <!-- 数据库连接信息 -->
         <property name="connection.url">
-            jdbc:mysql://db.miandian.qa:3306/testing_center?useSSL=false&amp;autoReconnect=true
+            jdbc:mysql://db.miandian.qa:3306/demo_qa?useSSL=false&amp;autoReconnect=true
         </property>
         <property name="connection.username">qa_00</property>
         <property name="connection.password">qa_00@123</property>
