@@ -36,7 +36,7 @@ public class TestCase {
     @Test
     public void testSaveObject() {
         User user = new User();
-        user.setId("200");
+        user.setId("300");
         user.setName("Tom");
         user.setPassword("123");
         user.setToken("Cat");
@@ -60,7 +60,8 @@ public class TestCase {
             tx = session.beginTransaction();
 //            测试更新功能
 //            找到现有的用户信息
-            User user = (User) session.get(User.class, "100");
+            User user = (User) session.get(User.class, "200" +
+                    "");
             System.out.println(user);
 //            修改信息
             user.setName("Jerry");
@@ -146,7 +147,6 @@ public class TestCase {
         tx.commit();
         session.close();
     }
-
 
     /**
      * delete后对象为临时状态

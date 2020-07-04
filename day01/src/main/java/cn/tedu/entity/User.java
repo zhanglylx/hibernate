@@ -10,6 +10,10 @@ public class User implements Serializable {
     private String token;
     private String nick;
 
+    public User() {
+    }
+
+
     public String getId() {
         return id;
     }
