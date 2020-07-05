@@ -37,7 +37,7 @@ public class SHTestCase {
         HibernateTemplate tempplate =
                 this.applicationContext.getBean("hibernateTemplate", HibernateTemplate.class);
         User user = new User();
-        user.setId("1234234");
+        user.setId("123423334");
         user.setName("FD");
         user.setNick("fsd");
         user.setPassword("2222");
