@@ -4,5 +4,11 @@
         "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
         "http://struts.apache.org/dtds/struts-2.5.dtd">
 <struts>
-
+    <package name="user" namespace="/user" extends="json-default">
+        <action name="login" class="cn.tedu.note.web.UserAction" method="login">
+            <result type="json" name="success">
+                <param name="root">result</param>
+            </result>
+        </action>
+    </package>
 </struts>
