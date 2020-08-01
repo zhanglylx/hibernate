@@ -5,6 +5,9 @@ import cn.tedu.note.entity.User;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.List;
+import java.util.Map;
+
 public class UserDaoTestCase extends TestBase {
 
     UserDao dao;
@@ -27,9 +30,15 @@ public class UserDaoTestCase extends TestBase {
     }
 
     @Test
-    public void testFindByName(){
+    public void testFindByName() {
         String name = "fdf";
         User user = this.dao.findUserByName(name);
         System.out.println(user);
+    }
+
+    @Test
+    public void testFindUsersLinkName() {
+        List<Map<String, Object>> list = this.dao.findUsersLikeName("fdf");
+        list.forEach(System.out::println);
     }
 }

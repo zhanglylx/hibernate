@@ -14,7 +14,7 @@ public abstract class JsonAction extends ActionSupport
     protected Map<String, Object> request;
     protected Map<String, Object> session;
     protected Map<String, Object> application;
-
+    public static final String JSON = "json";
 
     public Map<String, Object> getResult() {
         return result;

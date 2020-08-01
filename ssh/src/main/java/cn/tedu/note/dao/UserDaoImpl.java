@@ -6,7 +6,6 @@ import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
 import java.util.List;
-import java.util.Map;
 
 @Repository
 public class UserDaoImpl implements UserDao {
@@ -43,12 +42,13 @@ public class UserDaoImpl implements UserDao {
         if (list.isEmpty()) return null;
         return list.get(0);
     }
-1:48
-    @Override
-    public List<Map<String, Object>> findUsersLikeName(String name) {
-        name = "%" + name + "%";
-        String hql = "new map(id, name) from User where name Like :name";
 
+    @Override
+    public List findUsersLikeName(String name) {
+        name = "%" + name + "%";
+//        将查询结果中的行封装为map对象
+        String hql = "select new map(id, name) from User where name Like :name";
+//         执行带参数的HQL查询参数名:name
         return this.hibernateTemplate.findByNamedParam(hql, "name", name);
     }
 }

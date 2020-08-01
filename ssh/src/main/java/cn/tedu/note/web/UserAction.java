@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -15,16 +16,16 @@ public class UserAction extends JsonAction {
     private UserService userService;
 
     public String login() {
-        try {
-            User user = this.userService.login(this.username, this.password);
+        User user = this.userService.login(this.username, this.password);
 //            登录成功
-            this.setResult(user);
-        } catch (Exception e) {
-            e.printStackTrace();
-            //            登录失败
-            this.setResult(e);
-        }
-        return SUCCESS;
+        this.setResult(user);
+        return JSON;
+    }
+
+    public String list() {
+        List<Map<String, Object>> list = this.userService.listUsers(this.username);
+        setResult(list);
+        return JSON;
     }
 
 

@@ -2,13 +2,26 @@
 
 <!DOCTYPE struts PUBLIC
         "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
-        "http://struts.apache.org/dtds/struts-2.5.dtd">
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
 <struts>
     <package name="user" namespace="/user" extends="json-default">
-        <action name="login" class="cn.tedu.note.web.UserAction" method="login">
-            <result type="json" name="success">
+        <!--        配置异常拦截器，统一解决异常处理问题-->
+        <interceptors>
+            <interceptor name="exceptionInterceptor" class="cn.tedu.note.web.ExceptionInterceptor"/>
+            <interceptor-stack name="jsonStack">
+                <interceptor-ref name="defaultStack"/>
+                <interceptor-ref name="exceptionInterceptor"/>
+            </interceptor-stack>
+        </interceptors>
+        <!--        设置默认的连接器配置，全部的action都执行的拦截器 栈-->
+        <default-interceptor-ref name="jsonStack"/>
+        <!--        定义一个全局reslut 被全体Action共享-->
+        <global-results>
+            <result type="json" name="json">
                 <param name="root">result</param>
             </result>
-        </action>
+        </global-results>
+        <action name="login" class="cn.tedu.note.web.UserAction" method="login"/>
+        <action name="list" class="cn.tedu.note.web.UserAction" method="list"/>
     </package>
 </struts>
